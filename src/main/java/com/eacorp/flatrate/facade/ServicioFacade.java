@@ -10,4 +10,7 @@ import com.eacorp.flatrate.bean.BeanServicio;
 public interface ServicioFacade {
 
 	public abstract ArrayList<BeanServicio> listarServicio(Map<String, Object> parametros) throws DataAccessException;
+	public abstract ArrayList<BeanServicio> listarCombo(Map<String,Object> parametros1) throws DataAccessException;
+	public abstract ArrayList<BeanServicio> listarOperacion(Map<String,Object> parametrooper) throws DataAccessException;
+	public abstract ArrayList<BeanServicio> listarOperacionServicio(Map<String, Object> parametrosgrid) throws DataAccessException;
 }

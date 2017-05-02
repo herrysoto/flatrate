@@ -24,4 +24,24 @@ public class ServicioFacadeImpl implements ServicioFacade{
 		return servicioDAO.listarServicio(parametros);
 	}
 
+	@Override
+	public ArrayList<BeanServicio> listarCombo(Map<String, Object> parametros1)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.listarCombo(parametros1);
+	}
+
+	@Override
+	public ArrayList<BeanServicio> listarOperacion(Map<String, Object> parametrooper) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.listarOperacion(parametrooper);
+	}
+
+	@Override
+	public ArrayList<BeanServicio> listarOperacionServicio(
+			Map<String, Object> parametrosgrid) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.listarOperacionServicio(parametrosgrid);
+	}
+
 }

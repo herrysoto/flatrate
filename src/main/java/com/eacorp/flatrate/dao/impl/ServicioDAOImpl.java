@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.eacorp.flatrate.bean.BeanServicio;
 import com.eacorp.flatrate.dao.ServicioDAO;
+import com.eacorp.flatrate.dao.sp.ListarCombo;
+import com.eacorp.flatrate.dao.sp.ListarOperacionServiciosp;
+import com.eacorp.flatrate.dao.sp.ListarOperacionsp;
 import com.eacorp.flatrate.dao.sp.ListarServiciosp;
 import com.eacorp.flatrate.system.MasterDBConnections;
 
@@ -21,6 +24,34 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 		System.out.println("esta llegando al modelo de datos");
 		ListarServiciosp ls = new ListarServiciosp(getDsPrueba());
 		return ls.executeProcedure(parametros);
+	}
+
+
+	public ArrayList<BeanServicio> listarCombo(Map<String, Object> parametros1)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo la lista de servicios");
+		ListarCombo listacombo = new ListarCombo(getDsPrueba());
+		return listacombo.executeProcedure(parametros1);
+	}
+
+
+
+	public ArrayList<BeanServicio> listarOperacion(Map<String, Object> parametrooper) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo la lista de operaciones");
+		ListarOperacionsp listaoperacion =  new ListarOperacionsp(getDsPrueba());
+		return listaoperacion.executeProcedure(parametrooper);
+	}
+
+
+	@Override
+	public ArrayList<BeanServicio> listarOperacionServicio(
+			Map<String, Object> parametrosgrid) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo la grilla");
+		ListarOperacionServiciosp listaroperacionservicio = new ListarOperacionServiciosp(getDsPrueba());
+		return listaroperacionservicio.executeProcedure(parametrosgrid);
 	}
 
 }

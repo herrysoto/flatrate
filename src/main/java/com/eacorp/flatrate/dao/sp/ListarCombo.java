@@ -15,28 +15,24 @@ import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.StoredProcedure;
 
 
-
-
-
 import com.eacorp.flatrate.bean.BeanServicio;
 import com.eacorp.flatrate.system.Constantes;
 
-public class ListarServiciosp extends StoredProcedure{
-	ArrayList<BeanServicio> listserv = new ArrayList<BeanServicio>();
-	String sql = Constantes.PAQUETE_OPERACIONSERVICIO+Constantes.LIS_OPSE;
+public class ListarCombo extends StoredProcedure{
+	ArrayList<BeanServicio> listcomb = new ArrayList<BeanServicio>();
+	String sql = Constantes.PAQUETE_OPERACIONSERVICIO+Constantes.LIS_COMB;
 	
-	public ListarServiciosp(DataSource ds){
+	public ListarCombo(DataSource ds){
 		setDataSource(ds);
 		setSql(sql);
-		declareParameter(new SqlParameter("P_OPS", OracleTypes.VARCHAR));
 		declareParameter(new SqlOutParameter("C_OUT", OracleTypes.CURSOR,new RowMapper() { 
 			public Object mapRow(ResultSet rs, int rowNum)throws SQLException {
-	            BeanServicio ops = new BeanServicio();
-	            ops.setVchcodigooperacion(rs.getString("VCHCODIGOOPERACION"));
-	            ops.setVchdescripcion(rs.getString("VCHDESCRIPCION"));
+	            BeanServicio comb = new BeanServicio();
+	            comb.setChrcodigoservicio(rs.getString("CHRCODIGOSERVICIO"));
+	            comb.setVchdescripcion(rs.getString("VCHDESCRIPCION"));
 //	            System.out.println(ops.toString());
-	            listserv.add(ops);
-	            return listserv;       
+	            listcomb.add(comb);
+	            return listcomb;       
 	           
 
 	            }
@@ -44,10 +40,8 @@ public class ListarServiciosp extends StoredProcedure{
 		compile();
 	}
 	
-	public ArrayList<BeanServicio> executeProcedure(Map<String, Object> parametros){
-		super.execute(parametros);
-		return listserv;
+	public ArrayList<BeanServicio> executeProcedure(Map<String, Object> parametros1){
+		super.execute(parametros1);
+		return listcomb;
 	}
-	
-
 }
