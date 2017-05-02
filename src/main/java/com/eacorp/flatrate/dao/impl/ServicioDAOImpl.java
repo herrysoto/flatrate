@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.eacorp.flatrate.bean.BeanServicio;
 import com.eacorp.flatrate.dao.ServicioDAO;
+import com.eacorp.flatrate.dao.sp.ListarCodMaxHH;
 import com.eacorp.flatrate.dao.sp.ListarCombo;
+import com.eacorp.flatrate.dao.sp.ListarHH;
 import com.eacorp.flatrate.dao.sp.ListarOperacionServiciosp;
 import com.eacorp.flatrate.dao.sp.ListarOperacionsp;
 import com.eacorp.flatrate.dao.sp.ListarServiciosp;
@@ -52,6 +54,26 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 		System.out.println("Obteniendo la grilla");
 		ListarOperacionServiciosp listaroperacionservicio = new ListarOperacionServiciosp(getDsPrueba());
 		return listaroperacionservicio.executeProcedure(parametrosgrid);
+	}
+
+
+	@Override
+	public ArrayList<BeanServicio> listarHoraHombre(
+			Map<String, Object> parametroshh) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo la hora hombre");
+		ListarHH listhh = new ListarHH(getDsPrueba());
+		return listhh.executeProcedure(parametroshh);
+	}
+
+
+	@Override
+	public ArrayList<BeanServicio> listarCodMaxhh(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo el codigo maximo de  hora hombre");
+		ListarCodMaxHH listcod = new ListarCodMaxHH(getDsPrueba());
+		return listcod.executeProcedure(parametros);
 	}
 
 }

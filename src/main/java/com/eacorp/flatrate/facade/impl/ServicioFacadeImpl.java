@@ -44,4 +44,18 @@ public class ServicioFacadeImpl implements ServicioFacade{
 		return servicioDAO.listarOperacionServicio(parametrosgrid);
 	}
 
+	@Override
+	public ArrayList<BeanServicio> listarHoraHombre(
+			Map<String, Object> parametroshh) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.listarHoraHombre(parametroshh);
+	}
+
+	@Override
+	public ArrayList<BeanServicio> listarCodMaxhh(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.listarCodMaxhh(parametros);
+	}
+
 }

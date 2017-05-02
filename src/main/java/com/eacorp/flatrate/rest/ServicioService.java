@@ -65,4 +65,22 @@ public class ServicioService {
 		ArrayList<BeanServicio> listaoperacionservicio = servicioFacade.listarOperacionServicio(parametrosgrid);
 		return listaoperacionservicio;
 	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.GET, value = "/horashombre", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ArrayList<BeanServicio> listarhh() throws Exception{
+		Map<String, Object> parametroshh = new HashMap<String, Object>();
+		ArrayList<BeanServicio> listahh = servicioFacade.listarHoraHombre(parametroshh);
+		return listahh;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.GET, value = "/Getnumcodigo", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ArrayList<BeanServicio> listarcodmaxhh() throws Exception{
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		ArrayList<BeanServicio> listacod = servicioFacade.listarCodMaxhh(parametros);
+		return listacod;
+	}
 }
