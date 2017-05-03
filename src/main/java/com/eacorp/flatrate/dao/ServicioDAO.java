@@ -21,5 +21,9 @@ public interface ServicioDAO {
 	public abstract ArrayList<BeanServicio> listarHoraHombre(Map<String, Object> parametroshh) throws DataAccessException;
 	
 	public abstract ArrayList<BeanServicio> listarCodMaxhh(Map<String, Object> parametros) throws DataAccessException;
+	
+	public abstract ArrayList<BeanServicio> buscarItem(Map<String, Object> parametros) throws DataAccessException;
+	
+	public abstract ArrayList<BeanServicio> buscarNumcod(Map<String, Object> parametros) throws DataAccessException;
 
 }

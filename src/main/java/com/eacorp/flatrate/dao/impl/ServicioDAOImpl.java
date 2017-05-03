@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.eacorp.flatrate.bean.BeanServicio;
 import com.eacorp.flatrate.dao.ServicioDAO;
+import com.eacorp.flatrate.dao.sp.BuscarItem;
+import com.eacorp.flatrate.dao.sp.BuscarNumCod;
 import com.eacorp.flatrate.dao.sp.ListarCodMaxHH;
 import com.eacorp.flatrate.dao.sp.ListarCombo;
 import com.eacorp.flatrate.dao.sp.ListarHH;
@@ -47,7 +49,7 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 	}
 
 
-	@Override
+	
 	public ArrayList<BeanServicio> listarOperacionServicio(
 			Map<String, Object> parametrosgrid) throws DataAccessException {
 		// TODO Auto-generated method stub
@@ -57,7 +59,7 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 	}
 
 
-	@Override
+	
 	public ArrayList<BeanServicio> listarHoraHombre(
 			Map<String, Object> parametroshh) throws DataAccessException {
 		// TODO Auto-generated method stub
@@ -67,13 +69,33 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 	}
 
 
-	@Override
+	
 	public ArrayList<BeanServicio> listarCodMaxhh(Map<String, Object> parametros)
 			throws DataAccessException {
 		// TODO Auto-generated method stub
 		System.out.println("Obteniendo el codigo maximo de  hora hombre");
 		ListarCodMaxHH listcod = new ListarCodMaxHH(getDsPrueba());
 		return listcod.executeProcedure(parametros);
+	}
+
+
+	
+	public ArrayList<BeanServicio> buscarItem(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Buscando item");
+		BuscarItem listItem = new BuscarItem(getDsPrueba());
+		return listItem.executeProcedure(parametros);
+	}
+
+
+	
+	public ArrayList<BeanServicio> buscarNumcod(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Buscando el codigo maximo para insertar una nueva operacion servicio");
+		BuscarNumCod numcod = new BuscarNumCod(getDsPrueba());
+		return numcod.executeProcedure(parametros);
 	}
 
 }

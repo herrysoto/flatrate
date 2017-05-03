@@ -20,6 +20,11 @@ public class Constantes {
 	//obtener el codigo maximo de horas hombre para insertar el nuevo hh
 	public final static String FLRT_LIST_CODNUM = ".CODIGOMAXHH_LIST";
 	
+	//buscar item
+	public final static String FLRT_BUSCAR_ITEM = ".BUSCAR_ITEM";
+	
+	//OBTENER EL NUMCODIGO PARA INSERTAR UNA NUEVA OPERACION SERVICIO
+	public final static String FLRT_BUSCAR_NUMCOD = ".OBTENER_NUMCODIGO_OPSER";
 	
 	public final static String FE_URL = "http://localhost:4200";
 }

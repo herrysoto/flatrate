@@ -58,4 +58,18 @@ public class ServicioFacadeImpl implements ServicioFacade{
 		return servicioDAO.listarCodMaxhh(parametros);
 	}
 
+	@Override
+	public ArrayList<BeanServicio> buscarItem(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.buscarItem(parametros);
+	}
+
+	@Override
+	public ArrayList<BeanServicio> buscarNumcod(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.buscarNumcod(parametros);
+	}
+
 }

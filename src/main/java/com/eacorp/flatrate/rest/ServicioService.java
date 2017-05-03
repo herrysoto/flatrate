@@ -83,4 +83,23 @@ public class ServicioService {
 		ArrayList<BeanServicio> listacod = servicioFacade.listarCodMaxhh(parametros);
 		return listacod;
 	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.GET, value = "/buscar/{descripcion}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ArrayList<BeanServicio> buscarItem(@PathVariable String descripcion) throws Exception{
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("DESCRIPCION", descripcion);
+		ArrayList<BeanServicio> listItem = servicioFacade.buscarItem(parametros);
+		return listItem;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.GET, value = "/buscarnumcod", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ArrayList<BeanServicio> buscarNumcod() throws Exception{
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		ArrayList<BeanServicio> numcod = servicioFacade.buscarNumcod(parametros);
+		return numcod;
+	}
 }
