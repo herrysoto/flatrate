@@ -16,12 +16,12 @@ public class BeanServicio {
 	private String chrcodigoservicio;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
-	private String numnropieza;
+	private Double numnropieza;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String vchnrotrabajo;
 	
-	@JsonInclude(JsonInclude.Include.NON_NULL)
+//	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String chrcodigooperacionservicio;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
@@ -54,13 +54,22 @@ public class BeanServicio {
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Double numcodigo;
 	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private Double numcodigooperacionmaestra;
 	
 	
 	
-	public String getNumnropieza() {
+	
+	public Double getNumcodigooperacionmaestra() {
+		return numcodigooperacionmaestra;
+	}
+	public void setNumcodigooperacionmaestra(Double numcodigooperacionmaestra) {
+		this.numcodigooperacionmaestra = numcodigooperacionmaestra;
+	}
+	public Double getNumnropieza() {
 		return numnropieza;
 	}
-	public void setNumnropieza(String numnropieza) {
+	public void setNumnropieza(Double numnropieza) {
 		this.numnropieza = numnropieza;
 	}
 	public String getVchnrotrabajo() {
@@ -315,7 +324,7 @@ public class BeanServicio {
 	
 	
 	public BeanServicio(String vchdescripcion, String vchcodigooperacion,
-			String chrcodigoservicio, String numnropieza, String vchnrotrabajo,
+			String chrcodigoservicio, Double numnropieza, String vchnrotrabajo,
 			String chrcodigooperacionservicio, String codigo,
 			Double numhorashombre, Double numpreciosugerido,
 			Double numdescuento, Double numprecioestimado,

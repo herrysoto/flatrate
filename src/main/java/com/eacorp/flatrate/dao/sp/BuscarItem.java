@@ -29,9 +29,9 @@ String sql = Constantes.PAQUETE_OPERACIONSERVICIO+Constantes.FLRT_BUSCAR_ITEM;
 		declareParameter(new SqlOutParameter("C_OUT", OracleTypes.CURSOR,new RowMapper() { 
 			public Object mapRow(ResultSet rs, int rowNum)throws SQLException {
 	            BeanServicio op = new BeanServicio();
-	            op.setNumnropieza(rs.getString("NUMNROPIEZA"));
+	            op.setNumnropieza(rs.getDouble("NUMNROPIEZA"));
 	            op.setCodigo(rs.getString("VCHCODIGOOPERACION")+rs.getString("CHRCODIGOOPERACIONSERVICIO"));
-	            op.setVchcodigooperacion(rs.getString("VCHNROTRABAJO"));
+	            op.setVchnrotrabajo(rs.getString("VCHNROTRABAJO"));
 	            op.setVchcodigooperacion(rs.getString("VCHCODIGOOPERACION"));
 	            op.setChrcodigooperacionservicio(rs.getString("CHRCODIGOOPERACIONSERVICIO"));
 	            op.setVchdescripcion(rs.getString("VCHDESCRIPCION"));

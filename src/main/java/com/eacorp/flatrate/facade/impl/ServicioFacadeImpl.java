@@ -72,4 +72,25 @@ public class ServicioFacadeImpl implements ServicioFacade{
 		return servicioDAO.buscarNumcod(parametros);
 	}
 
+	@Override
+	public ArrayList<BeanServicio> buscarCodMaestra(
+			Map<String, Object> parametros) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.buscarCodMaestra(parametros);
+	}
+
+	@Override
+	public ArrayList<BeanServicio> buscarCodopValid(
+			Map<String, Object> parametros) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.buscarCodopValid(parametros);
+	}
+
+	@Override
+	public ArrayList<BeanServicio> listarServiciosContenidos(
+			Map<String, Object> parametros) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return servicioDAO.listarServiciosContenidos(parametros);
+	}
+
 }

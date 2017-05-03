@@ -102,4 +102,35 @@ public class ServicioService {
 		ArrayList<BeanServicio> numcod = servicioFacade.buscarNumcod(parametros);
 		return numcod;
 	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.GET, value = "/buscarcodmaestra", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ArrayList<BeanServicio> buscarCodMaestra() throws Exception{
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		ArrayList<BeanServicio> codmaestra = servicioFacade.buscarCodMaestra(parametros);
+		return codmaestra;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.GET, value = "/buscarvalid/{codopera}/{codoperaservicio}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ArrayList<BeanServicio> buscarCodValid(@PathVariable String codopera,@PathVariable String codoperaservicio) throws Exception{
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("OPERACION", codopera);
+		parametros.put("SERVICIO", codoperaservicio);
+		ArrayList<BeanServicio> codvalid = servicioFacade.buscarCodopValid(parametros);
+		return codvalid;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.GET, value = "/listacontenidos/{param}/{param2}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ArrayList<BeanServicio> listarserviciosContenidos(@PathVariable String param,@PathVariable String param2) throws Exception{
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("CODOPERACION", param);
+		parametros.put("CODOPERACIONSERVICIO", param2);
+		ArrayList<BeanServicio> listcontenidos = servicioFacade.listarServiciosContenidos(parametros);
+		return listcontenidos;
+	}
 }

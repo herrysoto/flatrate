@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.eacorp.flatrate.bean.BeanServicio;
 import com.eacorp.flatrate.dao.ServicioDAO;
+import com.eacorp.flatrate.dao.sp.BuscarCodMaestra;
+import com.eacorp.flatrate.dao.sp.BuscarCodoperValid;
 import com.eacorp.flatrate.dao.sp.BuscarItem;
 import com.eacorp.flatrate.dao.sp.BuscarNumCod;
 import com.eacorp.flatrate.dao.sp.ListarCodMaxHH;
@@ -15,6 +17,7 @@ import com.eacorp.flatrate.dao.sp.ListarCombo;
 import com.eacorp.flatrate.dao.sp.ListarHH;
 import com.eacorp.flatrate.dao.sp.ListarOperacionServiciosp;
 import com.eacorp.flatrate.dao.sp.ListarOperacionsp;
+import com.eacorp.flatrate.dao.sp.ListarServiciosContenidos;
 import com.eacorp.flatrate.dao.sp.ListarServiciosp;
 import com.eacorp.flatrate.system.MasterDBConnections;
 
@@ -96,6 +99,36 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 		System.out.println("Buscando el codigo maximo para insertar una nueva operacion servicio");
 		BuscarNumCod numcod = new BuscarNumCod(getDsPrueba());
 		return numcod.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public ArrayList<BeanServicio> buscarCodMaestra(
+			Map<String, Object> parametros) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo el codigo de la operacion maestra");
+		BuscarCodMaestra codmaestra = new BuscarCodMaestra(getDsPrueba());
+		return codmaestra.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public ArrayList<BeanServicio> buscarCodopValid(
+			Map<String, Object> parametros) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo el codigo de validacion para insertar un nuevo item");
+		BuscarCodoperValid codvalid = new BuscarCodoperValid(getDsPrueba());
+		return codvalid.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public ArrayList<BeanServicio> listarServiciosContenidos(
+			Map<String, Object> parametros) throws DataAccessException {
+		// TODO Auto-generated method stub
+		System.out.println("Obteniendo la lista de servicios contenidos");
+		ListarServiciosContenidos listcontenidos = new ListarServiciosContenidos(getDsPrueba());
+		return listcontenidos.executeProcedure(parametros);
 	}
 
 }

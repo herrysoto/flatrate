@@ -28,8 +28,8 @@ public class ListarOperacionServiciosp extends StoredProcedure{
 		declareParameter(new SqlOutParameter("C_OUT", OracleTypes.CURSOR,new RowMapper() { 
 			public Object mapRow(ResultSet rs, int rowNum)throws SQLException {
 	            BeanServicio op = new BeanServicio();
-	            op.setNumnropieza(rs.getString("NUMNROPIEZA"));
-	            op.setVchcodigooperacion(rs.getString("VCHNROTRABAJO"));
+	            op.setNumnropieza(rs.getDouble("NUMNROPIEZA"));
+	            op.setVchnrotrabajo(rs.getString("VCHNROTRABAJO"));
 	            op.setCodigo(rs.getString("VCHCODIGOOPERACION")+rs.getString("CHRCODIGOOPERACIONSERVICIO"));
 	            op.setVchcodigooperacion(rs.getString("VCHCODIGOOPERACION"));
 	            op.setChrcodigooperacionservicio(rs.getString("CHRCODIGOOPERACIONSERVICIO"));
