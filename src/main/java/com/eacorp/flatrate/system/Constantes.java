@@ -35,6 +35,17 @@ public class Constantes {
 	//SE OBTIENE LA LISTA DE LOS SERVICIOS CONTENIDOS
 	public final static String FLRT_LIS_CONTENIDOS = ".SERVCONTENIDOS";
 	
+	//PROBANDO EL PUT(ACTUALIZAR)
+	public final static String FLRT_ACT_DESC = ".ACTUALIZARDES";
+	
+	//actualizar las HorasHombre, esto va primero y luego viene el insert(post)
+	public final static String FLRT_ACT_HH = ".UPDATEHORASHOMBRE";
+	
+	//esta funcion sirve para actualizar la grilla despues de guardar los contenidos
+	public final static String FLRT_ACT_CONTENIDO = ".ACTUALIZARGRILLA";
+	
+	//Actualizar operacion servicio
+	public final static String FLRT_ACT_OPESER = ".ACTUALIZARGRILLA";
 	
 	public final static String FE_URL = "http://localhost:4200";
 }

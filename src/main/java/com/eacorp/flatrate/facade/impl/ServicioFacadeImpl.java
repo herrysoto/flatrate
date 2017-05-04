@@ -93,4 +93,32 @@ public class ServicioFacadeImpl implements ServicioFacade{
 		return servicioDAO.listarServiciosContenidos(parametros);
 	}
 
+	@Override
+	public void actualizardesc(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.actualizardesc(parametros);
+	}
+
+	@Override
+	public void actualizarHH(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.actualizarHH(parametros);
+	}
+
+	@Override
+	public void actualizarGrilla(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.actualizarGrilla(parametros);
+	}
+
+	@Override
+	public void actualizarOSERV(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.actualizarOSERV(parametros);
+	}
+
 }

@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.eacorp.flatrate.bean.BeanServicio;
 import com.eacorp.flatrate.dao.ServicioDAO;
+import com.eacorp.flatrate.dao.sp.ActualizarDescripcionsp;
+import com.eacorp.flatrate.dao.sp.ActualizarGrilla;
+import com.eacorp.flatrate.dao.sp.ActualizarHorasHombre;
+import com.eacorp.flatrate.dao.sp.ActualizarOperacionServicio;
 import com.eacorp.flatrate.dao.sp.BuscarCodMaestra;
 import com.eacorp.flatrate.dao.sp.BuscarCodoperValid;
 import com.eacorp.flatrate.dao.sp.BuscarItem;
@@ -129,6 +133,43 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 		System.out.println("Obteniendo la lista de servicios contenidos");
 		ListarServiciosContenidos listcontenidos = new ListarServiciosContenidos(getDsPrueba());
 		return listcontenidos.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public void actualizardesc(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		ActualizarDescripcionsp act =  new ActualizarDescripcionsp(getDsPrueba());
+		act.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public void actualizarHH(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		ActualizarHorasHombre acthh = new ActualizarHorasHombre(getDsPrueba());
+		acthh.executeProcedure(parametros);
+		
+	}
+
+
+	@Override
+	public void actualizarGrilla(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		ActualizarGrilla grilla = new ActualizarGrilla(getDsPrueba());
+		grilla.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public void actualizarOSERV(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		ActualizarOperacionServicio operserv = new ActualizarOperacionServicio(getDsPrueba());
+		operserv.executeProcedure(parametros);
 	}
 
 }

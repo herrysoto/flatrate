@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.tomcat.jni.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -132,5 +134,67 @@ public class ServicioService {
 		parametros.put("CODOPERACIONSERVICIO", param2);
 		ArrayList<BeanServicio> listcontenidos = servicioFacade.listarServiciosContenidos(parametros);
 		return listcontenidos;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.PUT, value = "/actualizar/", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public BeanServicio actualizardesc(@RequestBody BeanServicio servicio) throws Exception{
+		
+//		System.out.println(servicio.getVchdescripcion());
+//		System.out.println(servicio.getVchcodigooperacion());
+//		System.out.println(servicio.getChrcodigooperacionservicio());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("DESCRI", servicio.getVchdescripcion());
+		parametros.put("COUDOPERA", servicio.getVchcodigooperacion());
+		parametros.put("COUDSERVICIO", servicio.getChrcodigooperacionservicio());
+		servicioFacade.actualizardesc(parametros) ;
+		return servicio;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.PUT, value = "/actualizarhorashombre", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public BeanServicio actualizarhh(@RequestBody BeanServicio servicio) throws Exception{
+//		System.out.println(servicio.getNumpreciooficial());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("PRECIOOFICIAL", servicio.getNumpreciooficial());
+		servicioFacade.actualizarHH(parametros);
+		return servicio;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.PUT, value = "/actualizargrilla", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public BeanServicio actualizargrilla(@RequestBody BeanServicio servicio) throws Exception{
+//		System.out.println(servicio.getNumpreciooficial());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("PRECIOSUGERIDO", servicio.getNumpreciosugerido());
+		parametros.put("TOTAL", servicio.getNumtotal());
+		parametros.put("DESCUENTO", servicio.getNumdescuento());
+		parametros.put("HORASHOMBRE", servicio.getNumhorashombre());
+		parametros.put("CODIGOOPERACION", servicio.getVchcodigooperacion());
+		parametros.put("CODIGOOPERACIONSERVICIO", servicio.getChrcodigooperacionservicio());
+		servicioFacade.actualizarGrilla(parametros);
+		return servicio;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.PUT, value = "/actualizaroperacionservicio", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public BeanServicio actualizarOperacionServicio(@RequestBody BeanServicio servicio) throws Exception{
+//		System.out.println(servicio.getNumpreciooficial());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("NROTRABAJO", servicio.getVchnrotrabajo());
+		parametros.put("DESCRIPCION", servicio.getVchdescripcion());
+		parametros.put("PRECIOSUGERIDO", servicio.getNumpreciosugerido());
+		parametros.put("HORASHOMBRE", servicio.getNumhorashombre());
+		parametros.put("DESCUENTO", servicio.getNumdescuento());
+		parametros.put("DTEMODIFICACION", Time.now());
+		parametros.put("TOTAL", servicio.getNumtotal());
+		parametros.put("CODIGOOPERACIONSERVICIO", servicio.getChrcodigooperacionservicio());
+		parametros.put("CODIGOOPERACION", servicio.getVchcodigooperacion());
+		servicioFacade.actualizarOSERV(parametros);
+		return servicio;
 	}
 }

@@ -31,5 +31,13 @@ public interface ServicioDAO {
 	public abstract ArrayList<BeanServicio> buscarCodopValid(Map<String, Object> parametros) throws DataAccessException;
 	
 	public abstract ArrayList<BeanServicio> listarServiciosContenidos(Map<String, Object> parametros) throws DataAccessException;
+	
+	public abstract void actualizardesc(Map<String, Object> parametros) throws DataAccessException;
+	
+	public abstract void actualizarHH(Map<String, Object> parametros) throws DataAccessException;
+	
+	public abstract void actualizarGrilla(Map<String, Object> parametros) throws DataAccessException;
+	
+	public abstract void actualizarOSERV(Map<String, Object> parametros) throws DataAccessException;
 
 }
