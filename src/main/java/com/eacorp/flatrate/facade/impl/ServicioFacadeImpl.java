@@ -142,4 +142,11 @@ public class ServicioFacadeImpl implements ServicioFacade{
 		servicioDAO.insertarOperacionServicio(parametros);;
 	}
 
+	@Override
+	public void eliminarContenido(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.eliminarContenido(parametros);
+	}
+
 }

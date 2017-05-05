@@ -19,7 +19,7 @@ String sql = Constantes.PAQUETE_OPERACIONSERVICIO+Constantes.FLRT_INS_OPERACIONS
 	public AgregarOperacionServicio(DataSource ds){
 		setDataSource(ds);
 		setSql(sql);
-		declareParameter(new SqlParameter("codigo", OracleTypes.CHAR));
+		declareParameter(new SqlParameter("codigo", OracleTypes.VARCHAR));
 		declareParameter(new SqlParameter("codigoOperacion", OracleTypes.VARCHAR));
 		declareParameter(new SqlParameter("descripcion", OracleTypes.VARCHAR));
 		declareParameter(new SqlParameter("precioSugerido", OracleTypes.NUMBER));

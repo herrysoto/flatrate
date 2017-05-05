@@ -17,6 +17,7 @@ import com.eacorp.flatrate.dao.sp.BuscarCodMaestra;
 import com.eacorp.flatrate.dao.sp.BuscarCodoperValid;
 import com.eacorp.flatrate.dao.sp.BuscarItem;
 import com.eacorp.flatrate.dao.sp.BuscarNumCod;
+import com.eacorp.flatrate.dao.sp.EliminarContenido;
 import com.eacorp.flatrate.dao.sp.InsertarHorasHombre;
 import com.eacorp.flatrate.dao.sp.InsertarServicioContenido;
 import com.eacorp.flatrate.dao.sp.ListarCodMaxHH;
@@ -200,6 +201,16 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 		// TODO Auto-generated method stub
 		AgregarOperacionServicio insros = new AgregarOperacionServicio(getDsPrueba());
 		insros.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public void eliminarContenido(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		EliminarContenido delcon = new EliminarContenido(getDsPrueba());
+		delcon.executeProcedure(parametros);
+		
 	}
 
 }

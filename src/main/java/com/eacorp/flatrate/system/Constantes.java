@@ -47,7 +47,7 @@ public class Constantes {
 	public final static String FLRT_ACT_CONTENIDO = ".ACTUALIZARGRILLA";
 	
 	//Actualizar operacion servicio
-	public final static String FLRT_ACT_OPESER = ".ACTUALIZARGRILLA";
+	public final static String FLRT_ACT_OPESER = ".ACTUALIZAROPERACIONSERVICIO";
 	
 	//INSERTAR LAS HORAS HOMBRE
 	public final static String FLRT_INS_HH = ".POSTHORASHOMBRE";
@@ -57,6 +57,9 @@ public class Constantes {
 	
 	//INSERTAR OPERACION SERVICIO 
 	public final static String FLRT_INS_OPERACIONSERVICIO = ".AGREGAR_OPERACIONSERVICIOS";
+	
+	//eliminar contenido
+	public final static String FLRT_DEL_CONTENIDO = ".ELIMINARCONTENIDO";
 	
 	public final static String FE_URL = "http://localhost:4200";
 	

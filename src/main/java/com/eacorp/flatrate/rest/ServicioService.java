@@ -266,7 +266,22 @@ public class ServicioService {
 		parametros.put("numcodigo", servicio.getNumcodigo());
 		parametros.put("total", servicio.getNumtotal());
 //		parametros.put("DTFECHA",fecha.format(date));
-		servicioFacade.insertarOperacionServicio(parametros);;
+		servicioFacade.insertarOperacionServicio(parametros);
 		return servicio;
 	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.DELETE, value = "/eliminarcontenido/{numcodigomaestra}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public int eliminarContenido(@PathVariable int numcodigomaestra) throws Exception{
+//		Date date = new Date();
+//        System.out.println(fecha.format(date));
+//		System.out.println(servicio.getNumpreciooficial());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("NUMMAESTRA", numcodigomaestra);
+//		parametros.put("DTFECHA",fecha.format(date));
+		servicioFacade.eliminarContenido(parametros);
+		return numcodigomaestra;
+	}
+	
 }
