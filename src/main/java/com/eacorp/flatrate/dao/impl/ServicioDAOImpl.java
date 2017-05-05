@@ -12,10 +12,13 @@ import com.eacorp.flatrate.dao.sp.ActualizarDescripcionsp;
 import com.eacorp.flatrate.dao.sp.ActualizarGrilla;
 import com.eacorp.flatrate.dao.sp.ActualizarHorasHombre;
 import com.eacorp.flatrate.dao.sp.ActualizarOperacionServicio;
+import com.eacorp.flatrate.dao.sp.AgregarOperacionServicio;
 import com.eacorp.flatrate.dao.sp.BuscarCodMaestra;
 import com.eacorp.flatrate.dao.sp.BuscarCodoperValid;
 import com.eacorp.flatrate.dao.sp.BuscarItem;
 import com.eacorp.flatrate.dao.sp.BuscarNumCod;
+import com.eacorp.flatrate.dao.sp.InsertarHorasHombre;
+import com.eacorp.flatrate.dao.sp.InsertarServicioContenido;
 import com.eacorp.flatrate.dao.sp.ListarCodMaxHH;
 import com.eacorp.flatrate.dao.sp.ListarCombo;
 import com.eacorp.flatrate.dao.sp.ListarHH;
@@ -170,6 +173,33 @@ public class ServicioDAOImpl extends MasterDBConnections implements ServicioDAO{
 		// TODO Auto-generated method stub
 		ActualizarOperacionServicio operserv = new ActualizarOperacionServicio(getDsPrueba());
 		operserv.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public void insertarHH(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		InsertarHorasHombre insrthh = new InsertarHorasHombre(getDsPrueba());
+		insrthh.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public void insertarContenido(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		InsertarServicioContenido inscont = new InsertarServicioContenido(getDsPrueba());
+		inscont.executeProcedure(parametros);
+	}
+
+
+	@Override
+	public void insertarOperacionServicio(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		AgregarOperacionServicio insros = new AgregarOperacionServicio(getDsPrueba());
+		insros.executeProcedure(parametros);
 	}
 
 }

@@ -121,4 +121,25 @@ public class ServicioFacadeImpl implements ServicioFacade{
 		servicioDAO.actualizarOSERV(parametros);
 	}
 
+	@Override
+	public void insertarHH(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.insertarHH(parametros);
+	}
+
+	@Override
+	public void insertarContenido(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.insertarContenido(parametros);
+	}
+
+	@Override
+	public void insertarOperacionServicio(Map<String, Object> parametros)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		servicioDAO.insertarOperacionServicio(parametros);;
+	}
+
 }

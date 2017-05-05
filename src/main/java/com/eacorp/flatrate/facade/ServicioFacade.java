@@ -25,4 +25,8 @@ public interface ServicioFacade {
 	public abstract void actualizarHH(Map<String, Object> parametros) throws DataAccessException;
 	public abstract void actualizarGrilla(Map<String, Object> parametros) throws DataAccessException;
 	public abstract void actualizarOSERV(Map<String, Object> parametros) throws DataAccessException;
+	
+	public abstract void insertarHH(Map<String, Object> parametros) throws DataAccessException;
+	public abstract void insertarContenido(Map<String, Object> parametros) throws DataAccessException;
+	public abstract void insertarOperacionServicio(Map<String, Object> parametros) throws DataAccessException;
 }

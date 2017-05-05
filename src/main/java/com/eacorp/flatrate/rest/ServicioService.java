@@ -1,11 +1,19 @@
 package com.eacorp.flatrate.rest;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.tomcat.jni.Time;
+
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.eacorp.flatrate.bean.*;
@@ -24,6 +33,8 @@ import com.eacorp.flatrate.system.Constantes;
 @Controller
 @RequestMapping("/api/v1")
 public class ServicioService {
+	
+	private static final DateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Autowired
 	private ServicioFacade servicioFacade;
@@ -32,6 +43,8 @@ public class ServicioService {
 	@RequestMapping(method = RequestMethod.GET, value = "/prueba/{opsId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ArrayList<BeanServicio> listarServicio(@PathVariable String opsId) throws Exception{
+//		Date date = new Date();
+//        System.out.println(sdf.format(date));
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros.put("P_OPS", opsId);
 		ArrayList<BeanServicio> listserv = servicioFacade.listarServicio(parametros);
@@ -183,6 +196,8 @@ public class ServicioService {
 	@RequestMapping(method = RequestMethod.PUT, value = "/actualizaroperacionservicio", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public BeanServicio actualizarOperacionServicio(@RequestBody BeanServicio servicio) throws Exception{
+		Date date = new Date();
+//        System.out.println(sdf.format(date));
 //		System.out.println(servicio.getNumpreciooficial());
 		Map<String, Object> parametros = new HashMap<String, Object>();
 		parametros.put("NROTRABAJO", servicio.getVchnrotrabajo());
@@ -190,11 +205,68 @@ public class ServicioService {
 		parametros.put("PRECIOSUGERIDO", servicio.getNumpreciosugerido());
 		parametros.put("HORASHOMBRE", servicio.getNumhorashombre());
 		parametros.put("DESCUENTO", servicio.getNumdescuento());
-		parametros.put("DTEMODIFICACION", Time.now());
+		parametros.put("DTEMODIFICACION", fecha.format(date)); //TENGO QUE ARREGLARLO
 		parametros.put("TOTAL", servicio.getNumtotal());
 		parametros.put("CODIGOOPERACIONSERVICIO", servicio.getChrcodigooperacionservicio());
 		parametros.put("CODIGOOPERACION", servicio.getVchcodigooperacion());
 		servicioFacade.actualizarOSERV(parametros);
+		return servicio;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.POST, value = "/insertarhorashombre", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public BeanServicio insertarHorasHombre(@RequestBody BeanServicio servicio) throws Exception{
+//		Date date = new Date();
+//        System.out.println(fecha.format(date));
+//		System.out.println(servicio.getNumpreciooficial());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("CODIGO", servicio.getNumcodigo());
+		parametros.put("HORASHOMBRE", servicio.getNumhorashombre());
+//		parametros.put("DTFECHA",fecha.format(date));
+		servicioFacade.insertarHH(parametros);
+		return servicio;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.POST, value = "/insertarcontenido", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public BeanServicio insertarContenido(@RequestBody BeanServicio servicio) throws Exception{
+//		Date date = new Date();
+//        System.out.println(fecha.format(date));
+//		System.out.println(servicio.getNumpreciooficial());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("CODIGOOPERACIONMAESTRA", servicio.getNumcodigooperacionmaestra());
+		parametros.put("OPERACIONMAESTRA", servicio.getVchoperacionmaestra());
+		parametros.put("CODIGOOPERACION", servicio.getVchcodigooperacion());
+		parametros.put("CODIGOOPERACIONSERVICIO", servicio.getChrcodigooperacionservicio());
+		parametros.put("ESTADO", servicio.getChrestado());
+		parametros.put("CODIGOMASTER", servicio.getNumcodigomaster());
+		parametros.put("CODIGOITEM", servicio.getNumcodigoitem());
+//		parametros.put("DTFECHA",fecha.format(date));
+		servicioFacade.insertarContenido(parametros);
+		return servicio;
+	}
+	
+	@CrossOrigin(origins = Constantes.FE_URL)
+	@RequestMapping(method = RequestMethod.POST, value = "/insertaroperacionservicio", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public BeanServicio insertarOperacionServicio(@RequestBody BeanServicio servicio) throws Exception{
+//		Date date = new Date();
+//        System.out.println(fecha.format(date));
+//		System.out.println(servicio.getNumpreciooficial());
+		Map<String, Object> parametros = new HashMap<String, Object>();
+		parametros.put("codigo", servicio.getChrcodigooperacionservicio());
+		parametros.put("codigoOperacion", servicio.getVchcodigooperacion());
+		parametros.put("descripcion", servicio.getVchdescripcion());
+		parametros.put("precioSugerido", servicio.getNumpreciosugerido());
+		parametros.put("precioOficial", servicio.getNumpreciooficial());
+		parametros.put("horasHombre", servicio.getNumhorashombre());
+		parametros.put("descuento", servicio.getNumdescuento());
+		parametros.put("numcodigo", servicio.getNumcodigo());
+		parametros.put("total", servicio.getNumtotal());
+//		parametros.put("DTFECHA",fecha.format(date));
+		servicioFacade.insertarOperacionServicio(parametros);;
 		return servicio;
 	}
 }

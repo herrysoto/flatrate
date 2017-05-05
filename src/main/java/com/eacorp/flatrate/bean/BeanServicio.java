@@ -1,6 +1,10 @@
 package com.eacorp.flatrate.bean;
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 
@@ -57,9 +61,53 @@ public class BeanServicio {
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Double numcodigooperacionmaestra;
 	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private String dtefecha;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private String vchoperacionmaestra;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private String chrestado; 
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private Double numcodigomaster;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private Double numcodigoitem;
 	
 	
 	
+	public String getVchoperacionmaestra() {
+		return vchoperacionmaestra;
+	}
+	public void setVchoperacionmaestra(String vchoperacionmaestra) {
+		this.vchoperacionmaestra = vchoperacionmaestra;
+	}
+	public String getChrestado() {
+		return chrestado;
+	}
+	public void setChrestado(String chrestado) {
+		this.chrestado = chrestado;
+	}
+	public Double getNumcodigomaster() {
+		return numcodigomaster;
+	}
+	public void setNumcodigomaster(Double numcodigomaster) {
+		this.numcodigomaster = numcodigomaster;
+	}
+	public Double getNumcodigoitem() {
+		return numcodigoitem;
+	}
+	public void setNumcodigoitem(Double numcodigoitem) {
+		this.numcodigoitem = numcodigoitem;
+	}
+	public String getDtefecha() {
+		return dtefecha;
+	}
+	public void setDtefecha(String dtefecha) {
+		this.dtefecha = dtefecha;
+	}
 	public Double getNumcodigooperacionmaestra() {
 		return numcodigooperacionmaestra;
 	}

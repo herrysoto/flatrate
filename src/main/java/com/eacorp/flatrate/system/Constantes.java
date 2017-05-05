@@ -1,5 +1,7 @@
 package com.eacorp.flatrate.system;
 
+
+
 public class Constantes {
 	
 	public final static String PAQUETE_OPERACIONSERVICIO = "PKG_OPERACIONSERVICIOS";
@@ -47,5 +49,16 @@ public class Constantes {
 	//Actualizar operacion servicio
 	public final static String FLRT_ACT_OPESER = ".ACTUALIZARGRILLA";
 	
+	//INSERTAR LAS HORAS HOMBRE
+	public final static String FLRT_INS_HH = ".POSTHORASHOMBRE";
+	
+	//Insertar un nuevo contenido
+	public final static String FLRT_INS_CONTENIDO = ".INSERTARCONTENIDO";
+	
+	//INSERTAR OPERACION SERVICIO 
+	public final static String FLRT_INS_OPERACIONSERVICIO = ".AGREGAR_OPERACIONSERVICIOS";
+	
 	public final static String FE_URL = "http://localhost:4200";
+	
+	
 }
