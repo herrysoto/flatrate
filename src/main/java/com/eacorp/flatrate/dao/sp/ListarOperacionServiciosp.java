@@ -41,10 +41,12 @@ public class ListarOperacionServiciosp extends StoredProcedure{
 	            op.setNumpreciooficial(rs.getDouble("NUMPRECIOOFICIAL"));
 	            op.setNummanoobra(rs.getDouble("NUMMANOOBRA"));
 	            op.setNumrepuesto(rs.getDouble("NUMREPUESTO"));
+	            op.setNummantenimiento(rs.getDouble("NUMMANTENIMIENTO"));
 	            op.setNumtotal(rs.getDouble("NUMTOTAL"));
 	            op.setNumcodigo(rs.getDouble("NUMCODIGO"));
 //	            System.out.println(op.toString());
 	            listoperacionservicio.add(op);
+	            System.out.println(listoperacionservicio);
 	            return listoperacionservicio;       
 	           
 

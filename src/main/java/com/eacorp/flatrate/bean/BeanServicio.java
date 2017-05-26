@@ -51,6 +51,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 	private Double numrepuesto;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)
+	private Double nummantenimiento;
+	
+	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private Double numtotal;
 	
 	@JsonInclude(JsonInclude.Include.NON_NULL)

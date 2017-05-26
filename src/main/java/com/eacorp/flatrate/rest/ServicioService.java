@@ -40,6 +40,7 @@ public class ServicioService {
 	private ServicioFacade servicioFacade;
 	
 	
+	//es una prueba que no va en ningun servicio
 	@RequestMapping(method = RequestMethod.GET, value = "/prueba/{opsId}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ArrayList<BeanServicio> listarServicio(@PathVariable String opsId) throws Exception{
@@ -149,7 +150,9 @@ public class ServicioService {
 		return listcontenidos;
 	}
 	
-	@CrossOrigin(origins = Constantes.FE_URL)
+	//es una prueba que no va en ningun servicio
+	
+	@CrossOrigin(origins = Constantes.FE_URL) 
 	@RequestMapping(method = RequestMethod.PUT, value = "/actualizar/", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public BeanServicio actualizardesc(@RequestBody BeanServicio servicio) throws Exception{
